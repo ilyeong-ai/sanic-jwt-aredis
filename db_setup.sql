@@ -1,0 +1,19 @@
+CREATE TABLE IF NOT EXISTS users(
+name TEXT NOT NULL,
+email TEXT NOT NULL,
+hashed_password TEXT NOT NULL,
+create_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+expire_date TIMESTAMP
+);
+CREATE INDEX IF NOT EXISTS users_idx ON users (email, expire_date);
+
+CREATE TABLE IF NOT EXISTS ideas(
+id INT NOT NULL PRIMARY KEY,
+content TEXT NOT NULL,
+impact INT  NOT NULL,
+ease INT NOT NULL,
+confidence INT NOT NULL,
+created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+expire_at TIMESTAMP,
+modified_at TIMESTAMP
+);
